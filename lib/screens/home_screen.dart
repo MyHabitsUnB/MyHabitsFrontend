@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  'COVID-19',
+                  'MyHabits 😄',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 25.0,
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 CountryDropdown(
-                  countries: ['CN', 'FR', 'IN', 'IT', 'UK', 'USA'],
+                  countries: ['BR', 'CN', 'FR', 'IN', 'IT', 'UK', 'USA'],
                   country: _country,
                   onChanged: (val) => setState(() => _country = val),
                 ),
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Are you feeling sick?',
+                  'Pronto para adotar um novo hábito?',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 22.0,
@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.01),
                 Text(
-                  'If you feel sick with any COVID-19 symptoms, please call or text us immediately for help',
+                  'MyHabits é uma aplicação que te ajuda a desenvolver hábitos saudáveis através de atividades divertidas e cativantes.',
                   style: const TextStyle(
                     color: Colors.white70,
                     fontSize: 15.0,
@@ -95,11 +95,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                       icon: const Icon(
-                        Icons.phone,
+                        Icons.remove,
                         color: Colors.white,
                       ),
                       label: Text(
-                        'Call Now',
+                        'Hoje não ☹',
                         style: Styles.buttonTextStyle,
                       ),
                       textColor: Colors.white,
@@ -110,16 +110,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         horizontal: 20.0,
                       ),
                       onPressed: () {},
-                      color: Colors.blue,
+                      color: Colors.green,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                       icon: const Icon(
-                        Icons.chat_bubble,
+                        Icons.add,
                         color: Colors.white,
                       ),
                       label: Text(
-                        'Send SMS',
+                        'Bora nessa! 😎',
                         style: Styles.buttonTextStyle,
                       ),
                       textColor: Colors.white,
@@ -142,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Prevention Tips',
+              'Atividades para fazer...',
               style: const TextStyle(
                 fontSize: 22.0,
                 fontWeight: FontWeight.w600,
@@ -154,10 +154,13 @@ class _HomeScreenState extends State<HomeScreen> {
               children: prevention
                   .map((e) => Column(
                         children: <Widget>[
-                          Image.asset(
-                            e.keys.first,
-                            height: screenHeight * 0.12,
-                          ),
+                          IconButton(
+                              icon: Image.asset(
+                                e.keys.first,
+                                height: screenHeight * 0.12,
+                              ),
+                              iconSize: screenHeight * 0.14,
+                              onPressed: () {}),
                           SizedBox(height: screenHeight * 0.015),
                           Text(
                             e.values.first,
@@ -195,13 +198,13 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Image.asset('assets/images/own_test.png'),
+            Image.asset('assets/images/undraw_tweetstorm.png'),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Do your own test!',
+                  'Ganhe Pontos!',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
@@ -210,12 +213,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.01),
                 Text(
-                  'Follow the instructions\nto do your own test.',
+                  'Pratique uma atividade e\ncompartilhe com seus amigos.',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
                   ),
-                  maxLines: 2,
+                  maxLines: 3,
                 ),
               ],
             )

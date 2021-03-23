@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _country = 'USA';
+  String _country = 'BR';
 
   @override
   Widget build(BuildContext context) {

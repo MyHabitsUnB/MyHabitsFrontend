@@ -4,13 +4,24 @@ import 'package:flutter_covid_dashboard_ui/config/styles.dart';
 import 'package:flutter_covid_dashboard_ui/data/data.dart';
 import 'package:flutter_covid_dashboard_ui/widgets/widgets.dart';
 
-class HomeScreen extends StatefulWidget {
+class InfoScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _InfoScreenState createState() => _InfoScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  String _country = 'USA';
+class _InfoScreenState extends State<InfoScreen> {
+  String _contatoDias = 'linkedin.com/in/filypsdias';
+  String _nomeDias = 'Desenvolvedor Filipe Dias';
+  String _imageDias = 'https://media-exp1.licdn.com/dms/image/C4E03AQHjO_gfnjGd8g/profile-displayphoto-shrink_200_200/0/1603659841322?e=1622678400&v=beta&t=0NRVNtOPb370Yed-KqiPz5HWmCthtj2fK7Ywb-RPhAg';
+
+  String _contatoJoao = 'linkedin.com/in/joao4018';
+  String _nomeJoao = 'Desenvolvedor  João Carlos';
+  String _imageJoao = 'https://media-exp1.licdn.com/dms/image/C4E03AQFpsmOQ9_LiOA/profile-displayphoto-shrink_200_200/0/1596504330579?e=1622678400&v=beta&t=CPl59zUWlCpRIBE4ocJkq5H0FBe-KtcfXFHacUQmTeU';
+
+  String _contatoWander = 'linkedin.com/in/Wander';
+  String _nomeWander = 'Orientador Wander Cleber';
+  String _imageWander = 'https://media-exp1.licdn.com/dms/image/C4D0BAQEBKZtnieRY7g/company-logo_200_200/0/1596467791778?e=1625702400&v=beta&t=sXw4LOTbX6c-Z4kwel61czwFHTG_RXuRtiaT8TXe4w4';
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,175 +31,24 @@ class _HomeScreenState extends State<HomeScreen> {
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
-          _buildHeader(screenHeight),
-          _buildPreventionTips(screenHeight),
-          _buildYourOwnTest(screenHeight),
+          _buildYourOwnTestW(screenHeight, _nomeWander, _contatoWander, _imageWander),
+          _buildYourOwnTest(screenHeight, _nomeDias, _contatoDias, _imageDias),
+          _buildYourOwnTest(screenHeight, _nomeJoao, _contatoJoao, _imageJoao),
         ],
       ),
     );
   }
 
-  SliverToBoxAdapter _buildHeader(double screenHeight) {
-    return SliverToBoxAdapter(
-      child: Container(
-        padding: const EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
-          color: Palette.primaryColor,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(40.0),
-            bottomRight: Radius.circular(40.0),
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  'MyHabits 😄',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                CountryDropdown(
-                  countries: ['BR', 'CN', 'FR', 'IN', 'IT', 'UK', 'USA'],
-                  country: _country,
-                  onChanged: (val) => setState(() => _country = val),
-                ),
-              ],
-            ),
-            SizedBox(height: screenHeight * 0.03),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Pronto para adotar um novo hábito?',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.01),
-                Text(
-                  'MyHabits é uma aplicação que te ajuda a desenvolver hábitos saudáveis através de atividades divertidas e cativantes.',
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 15.0,
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.03),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    FlatButton.icon(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10.0,
-                        horizontal: 20.0,
-                      ),
-                      onPressed: () {},
-                      color: Colors.red,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      icon: const Icon(
-                        Icons.remove,
-                        color: Colors.white,
-                      ),
-                      label: Text(
-                        'Hoje não ☹',
-                        style: Styles.buttonTextStyle,
-                      ),
-                      textColor: Colors.white,
-                    ),
-                    FlatButton.icon(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10.0,
-                        horizontal: 20.0,
-                      ),
-                      onPressed: () {},
-                      color: Colors.green,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      icon: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                      label: Text(
-                        'Bora nessa! 😎',
-                        style: Styles.buttonTextStyle,
-                      ),
-                      textColor: Colors.white,
-                    ),
-                  ],
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
-  }
 
-  SliverToBoxAdapter _buildPreventionTips(double screenHeight) {
-    return SliverToBoxAdapter(
-      child: Container(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              'Atividades para fazer...',
-              style: const TextStyle(
-                fontSize: 22.0,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const SizedBox(height: 20.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: prevention
-                  .map((e) => Column(
-                        children: <Widget>[
-                          IconButton(
-                              icon: Image.asset(
-                                e.keys.first,
-                                height: screenHeight * 0.12,
-                              ),
-                              iconSize: screenHeight * 0.14,
-                              onPressed: () {}),
-                          SizedBox(height: screenHeight * 0.015),
-                          Text(
-                            e.values.first,
-                            style: const TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                      ))
-                  .toList(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  SliverToBoxAdapter _buildYourOwnTest(double screenHeight) {
+  SliverToBoxAdapter _buildYourOwnTest(double screenHeight, String nome, String contato, String image) {
     return SliverToBoxAdapter(
       child: Container(
         margin: const EdgeInsets.symmetric(
-          vertical: 10.0,
+          vertical: 17.0,
           horizontal: 20.0,
         ),
         padding: const EdgeInsets.all(10.0),
-        height: screenHeight * 0.15,
+        height: screenHeight * 0.20,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFFAD9FE4), Palette.primaryColor],
@@ -198,25 +58,37 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Image.asset('assets/images/undraw_tweetstorm.png'),
+            Container(
+              width: 90.0,
+              height: 90.0,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: NetworkImage(
+                          "$image")
+                  )
+              ),
+            ),
+            SizedBox(width: screenHeight * 0.02),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Ganhe Pontos!',
+                  '$nome!',
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 18.0,
+                    fontSize: 14.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.01),
                 Text(
-                  'Pratique uma atividade e\ncompartilhe com seus amigos.',
+                  'Desenvolvedor MyHabits \nContato para suporte\n$contato',
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 16.0,
+                    fontSize: 14.0,
                   ),
                   maxLines: 3,
                 ),
@@ -226,5 +98,67 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+
   }
+  SliverToBoxAdapter _buildYourOwnTestW(double screenHeight, String nome, String contato, String image) {
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 20.0,
+          horizontal: 20.0,
+        ),
+        padding: const EdgeInsets.all(10.0),
+        height: screenHeight * 0.20,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFFAD9FE4), Palette.primaryColor],
+          ),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Container(
+              width: 90.0,
+              height: 90.0,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: NetworkImage(
+                          "$image",)
+                  )
+              ),
+            ),
+            SizedBox(width: screenHeight * 0.02),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  '$nome!',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.01),
+                Text(
+                  'Orientador MyHabits \nContato para suporte\n$contato',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14.0,
+                  ),
+                  maxLines: 3,
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+
+  }
+
 }

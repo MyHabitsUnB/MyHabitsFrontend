@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_covid_dashboard_ui/screens/info_screen.dart';
 import 'package:flutter_covid_dashboard_ui/screens/screens.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     HomeScreen(),
     StatsScreen(),
     Scaffold(),
-    Scaffold(),
+    InfoScreen(),
     Scaffold(),
   ];
   int _currentIndex = 0;

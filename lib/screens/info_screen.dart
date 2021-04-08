@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_covid_dashboard_ui/config/palette.dart';
-import 'package:flutter_covid_dashboard_ui/config/styles.dart';
-import 'package:flutter_covid_dashboard_ui/data/data.dart';
 import 'package:flutter_covid_dashboard_ui/widgets/widgets.dart';
 
 class InfoScreen extends StatefulWidget {
@@ -12,16 +10,18 @@ class InfoScreen extends StatefulWidget {
 class _InfoScreenState extends State<InfoScreen> {
   String _contatoDias = 'linkedin.com/in/filypsdias';
   String _nomeDias = 'Desenvolvedor Filipe Dias';
-  String _imageDias = 'https://media-exp1.licdn.com/dms/image/C4E03AQHjO_gfnjGd8g/profile-displayphoto-shrink_200_200/0/1603659841322?e=1622678400&v=beta&t=0NRVNtOPb370Yed-KqiPz5HWmCthtj2fK7Ywb-RPhAg';
+  String _imageDias =
+      'https://media-exp1.licdn.com/dms/image/C4E03AQHjO_gfnjGd8g/profile-displayphoto-shrink_200_200/0/1603659841322?e=1622678400&v=beta&t=0NRVNtOPb370Yed-KqiPz5HWmCthtj2fK7Ywb-RPhAg';
 
   String _contatoJoao = 'linkedin.com/in/joao4018';
-  String _nomeJoao = 'Desenvolvedor  João Carlos';
-  String _imageJoao = 'https://media-exp1.licdn.com/dms/image/C4E03AQFpsmOQ9_LiOA/profile-displayphoto-shrink_200_200/0/1596504330579?e=1622678400&v=beta&t=CPl59zUWlCpRIBE4ocJkq5H0FBe-KtcfXFHacUQmTeU';
+  String _nomeJoao = 'Desenvolvedor João Carlos';
+  String _imageJoao =
+      'https://media-exp1.licdn.com/dms/image/C4E03AQFpsmOQ9_LiOA/profile-displayphoto-shrink_200_200/0/1596504330579?e=1622678400&v=beta&t=CPl59zUWlCpRIBE4ocJkq5H0FBe-KtcfXFHacUQmTeU';
 
   String _contatoWander = 'linkedin.com/in/Wander';
   String _nomeWander = 'Orientador Wander Cleber';
-  String _imageWander = 'https://media-exp1.licdn.com/dms/image/C4D0BAQEBKZtnieRY7g/company-logo_200_200/0/1596467791778?e=1625702400&v=beta&t=sXw4LOTbX6c-Z4kwel61czwFHTG_RXuRtiaT8TXe4w4';
-
+  String _imageWander =
+      'https://media-exp1.licdn.com/dms/image/C4D0BAQEBKZtnieRY7g/company-logo_200_200/0/1596467791778?e=1625702400&v=beta&t=sXw4LOTbX6c-Z4kwel61czwFHTG_RXuRtiaT8TXe4w4';
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,8 @@ class _InfoScreenState extends State<InfoScreen> {
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
-          _buildYourOwnTestW(screenHeight, _nomeWander, _contatoWander, _imageWander),
+          _buildYourOwnTestW(
+              screenHeight, _nomeWander, _contatoWander, _imageWander),
           _buildYourOwnTest(screenHeight, _nomeDias, _contatoDias, _imageDias),
           _buildYourOwnTest(screenHeight, _nomeJoao, _contatoJoao, _imageJoao),
         ],
@@ -39,8 +40,8 @@ class _InfoScreenState extends State<InfoScreen> {
     );
   }
 
-
-  SliverToBoxAdapter _buildYourOwnTest(double screenHeight, String nome, String contato, String image) {
+  SliverToBoxAdapter _buildYourOwnTest(
+      double screenHeight, String nome, String contato, String image) {
     return SliverToBoxAdapter(
       child: Container(
         margin: const EdgeInsets.symmetric(
@@ -64,11 +65,7 @@ class _InfoScreenState extends State<InfoScreen> {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: NetworkImage(
-                          "$image")
-                  )
-              ),
+                      fit: BoxFit.fill, image: NetworkImage("$image"))),
             ),
             SizedBox(width: screenHeight * 0.02),
             Column(
@@ -98,9 +95,10 @@ class _InfoScreenState extends State<InfoScreen> {
         ),
       ),
     );
-
   }
-  SliverToBoxAdapter _buildYourOwnTestW(double screenHeight, String nome, String contato, String image) {
+
+  SliverToBoxAdapter _buildYourOwnTestW(
+      double screenHeight, String nome, String contato, String image) {
     return SliverToBoxAdapter(
       child: Container(
         margin: const EdgeInsets.symmetric(
@@ -126,9 +124,8 @@ class _InfoScreenState extends State<InfoScreen> {
                   image: DecorationImage(
                       fit: BoxFit.fill,
                       image: NetworkImage(
-                          "$image",)
-                  )
-              ),
+                        "$image",
+                      ))),
             ),
             SizedBox(width: screenHeight * 0.02),
             Column(
@@ -158,7 +155,5 @@ class _InfoScreenState extends State<InfoScreen> {
         ),
       ),
     );
-
   }
-
 }

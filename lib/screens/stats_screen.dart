@@ -21,7 +21,7 @@ class _StatsScreenState extends State<StatsScreen> {
         slivers: <Widget>[
           _buildHeader(),
           _buildRegionTabBar(),
-          _buildStatsTabBar(),
+          _buildEmptyContainer(),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             sliver: SliverToBoxAdapter(
@@ -44,7 +44,7 @@ class _StatsScreenState extends State<StatsScreen> {
       padding: const EdgeInsets.all(20.0),
       sliver: SliverToBoxAdapter(
         child: Text(
-          'Statistics',
+          'Estatísticas 📈',
           style: const TextStyle(
             color: Colors.white,
             fontSize: 25.0,
@@ -76,13 +76,22 @@ class _StatsScreenState extends State<StatsScreen> {
             labelColor: Colors.black,
             unselectedLabelColor: Colors.white,
             tabs: <Widget>[
-              Text('My Country'),
-              Text('Global'),
+              Text('Meu Status 🤩'),
+              Text('Amigos 🤗'),
             ],
             onTap: (index) {},
           ),
         ),
       ),
+    );
+  }
+
+  SliverToBoxAdapter _buildEmptyContainer() {
+    return SliverToBoxAdapter(
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 20.0),
+          height: 20.0,
+        )
     );
   }
 

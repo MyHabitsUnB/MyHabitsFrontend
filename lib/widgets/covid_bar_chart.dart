@@ -21,10 +21,10 @@ class CovidBarChart extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(15.0),
             alignment: Alignment.centerLeft,
             child: Text(
-              'Daily New Cases',
+              'Nível de Felicidade',
               style: const TextStyle(
                 fontSize: 22.0,
                 fontWeight: FontWeight.bold,
@@ -36,7 +36,7 @@ class CovidBarChart extends StatelessWidget {
             child: BarChart(
               BarChartData(
                 alignment: BarChartAlignment.spaceAround,
-                maxY: 16.0,
+                maxY: 14.0,
                 barTouchData: BarTouchData(enabled: false),
                 titlesData: FlTitlesData(
                   show: true,
@@ -48,19 +48,19 @@ class CovidBarChart extends StatelessWidget {
                     getTitles: (double value) {
                       switch (value.toInt()) {
                         case 0:
-                          return 'May 24';
+                          return '15/03'; //TODO Get from calendar
                         case 1:
-                          return 'May 25';
+                          return '16/03';
                         case 2:
-                          return 'May 26';
+                          return '17/03';
                         case 3:
-                          return 'May 27';
+                          return '18/03';
                         case 4:
-                          return 'May 28';
+                          return '19/03';
                         case 5:
-                          return 'May 29';
+                          return '20/03';
                         case 6:
-                          return 'May 30';
+                          return '21/03';
                         default:
                           return '';
                       }
@@ -72,9 +72,9 @@ class CovidBarChart extends StatelessWidget {
                       textStyle: Styles.chartLabelsTextStyle,
                       getTitles: (value) {
                         if (value == 0) {
-                          return '0';
+                          return '1';
                         } else if (value % 3 == 0) {
-                          return '${value ~/ 3 * 5}K';
+                          return '${value ~/ 3 + 1}';
                         }
                         return '';
                       }),
@@ -85,7 +85,7 @@ class CovidBarChart extends StatelessWidget {
                   getDrawingHorizontalLine: (value) => FlLine(
                     color: Colors.black12,
                     strokeWidth: 1.0,
-                    dashArray: [5],
+                    dashArray: [4],
                   ),
                 ),
                 borderData: FlBorderData(show: false),
@@ -98,7 +98,7 @@ class CovidBarChart extends StatelessWidget {
                           barRods: [
                             BarChartRodData(
                               y: value,
-                              color: Colors.red,
+                              color: Colors.orange,
                             ),
                           ],
                         )))

@@ -49,7 +49,7 @@ class _NameUserState extends State<NameUser> {
                 //     alignment: Alignment.topCenter,
                 //   ),
                 // ),
-                ImageBanner("images/SmartMeat.png"),
+                ImageBanner("images/...png"),
                 TextSection("\nDigite seu nome\n no campo abaixo!"),
                 SizedBox(height: _height * 0.04),
                 Container(

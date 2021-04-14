@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_covid_dashboard_ui/screens/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class NavBar extends StatelessWidget {
+class NavBar extends StatefulWidget {
+  @override
+  _NavBarState createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> {
+  SharedPreferences prefs;
+  String _name;
+
+  @override
+  void initState() {
+    initPrefs();
+  }
+
+  Future<void> initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+    _name = prefs.getString("nome" ?? 'Usuário desconhecido');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -10,7 +29,7 @@ class NavBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('Oflutter.com'),
+            accountName: Text(_name),
             accountEmail: Text('example@gmail.com'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
@@ -32,37 +51,37 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.favorite),
-            title: Text('Favorites'),
+            title: Text('Favoritos'),
             onTap: () => null,
           ),
           ListTile(
             leading: Icon(Icons.person),
-            title: Text('Friends'),
+            title: Text('Amigos'),
             onTap: () => null,
           ),
           ListTile(
             leading: Icon(Icons.share),
-            title: Text('Share'),
+            title: Text('Compartilhar'),
             onTap: () => null,
           ),
           ListTile(
             leading: Icon(Icons.notifications),
-            title: Text('Request'),
+            title: Text('Notificação'),
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            title: Text('Configuração'),
             onTap: () => null,
           ),
           ListTile(
             leading: Icon(Icons.description),
-            title: Text('Policies'),
+            title: Text('Politicas'),
             onTap: () => null,
           ),
           Divider(),
           ListTile(
-            title: Text('Exit'),
+            title: Text('Fechar Menu'),
             leading: Icon(Icons.exit_to_app),
             onTap: () =>
                 Navigator.push(

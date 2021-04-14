@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_covid_dashboard_ui/config/palette.dart';
 import 'package:flutter_covid_dashboard_ui/config/styles.dart';
+import 'package:flutter_covid_dashboard_ui/screens/NavBar.dart';
 import 'package:flutter_covid_dashboard_ui/screens/calendar_screen.dart';
 import 'package:flutter_covid_dashboard_ui/widgets/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';

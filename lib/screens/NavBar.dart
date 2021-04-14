@@ -18,7 +18,7 @@ class _NavBarState extends State<NavBar> {
 
   Future<void> initPrefs() async {
     prefs = await SharedPreferences.getInstance();
-    _name = prefs.getString("nome" ?? 'Usuário desconhecido');
+    _name = prefs.getString("nome") ?? 'usuário desconhecido';
   }
 
   @override

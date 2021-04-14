@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_covid_dashboard_ui/screens/screens.dart';
+import 'package:flutter_covid_dashboard_ui/screens/splash.dart';
+import 'package:flutter_covid_dashboard_ui/screens/welcome_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: BottomNavScreen(),
+      home: Splash(),
     );
   }
 }

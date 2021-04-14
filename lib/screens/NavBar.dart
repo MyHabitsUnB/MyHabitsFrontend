@@ -9,7 +9,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   SharedPreferences prefs;
-  String _name;
+  String _name = 'usuário desconhecido';
 
   @override
   void initState() {
@@ -18,7 +18,7 @@ class _NavBarState extends State<NavBar> {
 
   Future<void> initPrefs() async {
     prefs = await SharedPreferences.getInstance();
-    _name = prefs.getString("nome") ?? 'usuário desconhecido';
+    _name = prefs.getString("nome");
   }
 
   @override

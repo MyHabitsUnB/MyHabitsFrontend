@@ -29,10 +29,20 @@ dependencies:
 #  table_calendar: ^3.0.0
   table_calendar: ^2.1.0
   shared_preferences: ^0.5.4+5
+  flutter_launcher_icons: "^0.8.0"
+  flutter_launcher_name: "^0.0.1"
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
+
+flutter_launcher_name:
+  name: "MyHabits"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
